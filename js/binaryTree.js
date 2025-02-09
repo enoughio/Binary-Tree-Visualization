@@ -28,8 +28,6 @@ function createTree(arr) {
 
 }
 
-
-
 // remove function clears the graph. Since we create tree from scratch for every number (input) we need to clear the current graph. You can comment out the remove function inside of createTree function and observe what happens. 
 function remove() {  // ?
     var graph = document.querySelector('svg');
