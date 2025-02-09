@@ -13,6 +13,7 @@ function drawGraph(data) {
         list.push(obj)
     }
 
+
     //https://codeburst.io/javascript-array-distinct-5edc93501dc4
     var unique = [...new Set(data.map(x => x.value))]
 
@@ -22,15 +23,20 @@ function drawGraph(data) {
         bottom: 5,
         left: 20
     },
+
+
         width = (100 * unique.length) - margin.right - margin.left,
         height = (100 * unique.length) - margin.top - margin.bottom;
 
     var i = 0;
-
+ 
     var tree = d3.layout.tree().size([height, width]);
     var diagonal = d3.svg.diagonal().projection(function (d) {
         return [d.x, d.y];
     });
+    
+    
+    //defininng the position on node 
     var svg = d3.select(".graph").append("svg")
         .attr("width", width ).attr("height", height + margin.top)
         .append("g")

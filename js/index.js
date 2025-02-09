@@ -1,23 +1,23 @@
 const output = document.getElementById("tree");
 
-function getInput() {
+function getInput() {    // get input and filter it out and store it in nums.
     const value = document.getElementById("inp").value;
     var arr = value.split(" ")
     var num = [];
 
     for (var i = 0; i < arr.length; i++) {
         if (!isNaN(arr[i]) && arr[i] != "\n") {
-            num.push(arr[i])
+            num.push(arr[i]);
         }
     }
     return num
-}
+} 
+
 
 function action() {
     getRoot()
     const el = document.querySelector('#tree');
     el.onwheel = zoom;
-
 }
 
 function getRoot() {
@@ -82,6 +82,7 @@ function zoom(event) {
     el.style.transform = `scale(${scale})`;
 }
 
+
 function clear(el) {
     var allContainers = document.querySelectorAll(".numContainer")
     var inp = document.getElementById("inp")
@@ -99,6 +100,7 @@ function clear(el) {
 
     })
 }
+
 
 function toggleLock() {
     var btn = document.querySelector(".btn")
@@ -132,6 +134,37 @@ function toggleLock() {
     }
 }
 
+
+// for creating a complete binary tree
+function CompleteBinaryTree(arr) {
+    if (!arr || arr.length === 0) return [];
+    
+    class TreeNode {
+        constructor(val) {
+            this.val = val;
+            this.left = null;
+            this.right = null;
+        }
+    }
+    
+    let nodes = arr.map(value => new TreeNode(value));
+    
+    for (let i = 0; i < nodes.length; i++) {
+        let leftIndex = 2 * i + 1;
+        let rightIndex = 2 * i + 2;
+        
+        if (leftIndex < nodes.length) {
+            nodes[i].left = nodes[leftIndex];
+        }
+        
+        if (rightIndex < nodes.length) {
+            nodes[i].right = nodes[rightIndex];
+        }
+    }
+    
+    return nodes[0]; // Returns the root of the complete binary tree
+}
+
 function clearAndCreate() {
     var inp = document.getElementById("inp")
     var btn_click = document.querySelector(".btn-clear")
@@ -163,6 +196,8 @@ function clearAndCreate() {
     })
 }
 
+
+
 function findTheNode(root, node) {
     var value = parseFloat(node.innerHTML)
 
@@ -190,6 +225,8 @@ function fillTheCircle(root, value) {
     fillTheCircle(root.right)
 
 }
+
+
 
 function fillToColor(value, color) {
     var circles = document.querySelectorAll(".node");
