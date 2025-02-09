@@ -1,110 +1,128 @@
-*{
+
+ /* Reset and Base Styles */
+ * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-body{
-    background-color: lightgray;
-}
-
-#tree::-webkit-scrollbar,#inp::-webkit-scrollbar{
-    width: 5px;
-    background-color: lightgray;
-}
-
-#tree::-webkit-scrollbar-thumb,#inp::-webkit-scrollbar-thumb{
-    background-color: gray;
-    border-radius: 5px;
-}
-
-#tree::-webkit-scrollbar:horizontal,#inp::-webkit-scrollbar:horizontal{
-    height: 7px;
-}
-
-#tree::-webkit-scrollbar-thumb:hover,#inp::-webkit-scrollbar-thumb:hover{
-    background-color: rgb(83, 82, 82);
-}
-
-.container{
-    position: absolute;
-    width: 80%;
-    left: 10%;
-    height: 80%;
-    top: 10%;
-}
-
-.container #inp{
-    position: relative;
-    width: 80%;
-    left: 10%;
-    height: 10%;
-    resize: none;
-    font-size: x-large;
-    text-align: center;
-    border: 2px solid black;
-
-}
-
-.container .findContainer{
-    position: relative;
-    width: 80%;
-    left: 10%;
-    text-align: center;
-
-}
-
-.numContainer{
-    width: 50px;
-    height: 50px;
-    display: inline-block;
+body {
+    background-color: #f4f4f9;
+    display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
-    margin-right: 10px;
-    margin-top: 5px;
-    border-radius: 50px;
-    border: none;
-    cursor: pointer;
+    height: 100vh;
 }
 
-.container #tree{
-    position: relative;
+.container {
     width: 80%;
-    margin-top: 1%;
-    left: 10%;
-    height: 85%;
-    background-color: white;
-    border: 2px solid black;
-    overflow: auto;
-
-}
-
-.container h1{
-    position: relative;
-    top: -10px;
+    max-width: 900px;
     text-align: center;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.btn-container{
-    position: relative;
-    width: 80%;
-    left: 10%;
+h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Input Styling */
+#inp {
+    width: 100%;
+    height: 120px;
+    resize: none;
+    font-size: 16px;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+#inp:focus {
+    border-color: #007bff;
+}
+
+/* Scrollbar Customization */
+#tree::-webkit-scrollbar, #inp::-webkit-scrollbar {
+    width: 6px;
+}
+
+#tree::-webkit-scrollbar-thumb, #inp::-webkit-scrollbar-thumb {
+    background-color: #007bff;
+    border-radius: 6px;
+}
+
+/* Button Styling */
+.btn-container {
     display: flex;
     justify-content: flex-end;
     margin-top: 10px;
 }
 
-.btn, .btn-clear{
-    position: relative;
-    width: 80px;
-    height: 30px;
+.btn, .btn-clear {
+    width: 90px;
+    height: 35px;
     border: none;
     cursor: pointer;
-    border-radius: 10px;
-    background-color: lightblue;
-    margin-left: 5px;
-
+    border-radius: 8px;
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    transition:  0.3s, transform 0.2s;
 }
+
+.btn:hover, .btn-clear:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.btn-clear {
+    background-color: #ff4d4d;
+    display: inline-block;
+}
+
+.btn-clear:hover {
+    background-color: #cc0000;
+}
+
+/* Tree Display */
+#tree {
+    width: 100%;
+    height: 400px;
+    background-color: #fafafa;
+    border-radius: 12px;
+    border: 2px solid #ddd;
+    overflow: auto;
+    padding: 10px;
+}
+
+/* Node Styling */
+.numContainer {
+    width: 50px;
+    height: 50px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    border-radius: 50%;
+    margin: 5px;
+    transition: transform 0.3s;
+}
+
+.numContainer:hover {
+    transform: scale(1.1);
+    background-color: #0056b3;
+}
+
+/* Animations */
 
 .btn-clear{
     display: none;
@@ -123,6 +141,13 @@ body{
     animation: greenfill 1s forwards;
 }
 
+
+.github{
+    position: fixed;
+    top: 0;
+    right: 0;
+    border: 0;
+}
 
 
 @keyframes goldfill {
@@ -147,4 +172,3 @@ body{
     }
     
 }
-
